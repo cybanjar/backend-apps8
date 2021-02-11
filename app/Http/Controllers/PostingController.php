@@ -46,7 +46,7 @@ class PostingController extends Controller
 
         $data = $request->all();
 
-        $data['picturePath'] = $request->file('picturePath')->store('assets/user', 'public');
+        $data['picturePath'] = $request->file('picturePath')->store('assets/posting', 'public');
 
         $posting = Posting::create($data);
 
