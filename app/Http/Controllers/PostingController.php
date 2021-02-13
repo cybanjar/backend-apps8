@@ -31,32 +31,16 @@ class PostingController extends Controller
         ]);
 
         if ($validator->fails()) {
-            // return response()->json($validator->errors(), 400);
             return ResponseFormatter::error(['error' => $validator->errors()], 'Posting is Fails', 401);
         }
 
-        // if ($request->file('picturePath')->isValid()) {
-        //     $file = $request->file->store('assets/user', 'public');
-        // }
-
-        // store your file into db
-        // $user = Auth::user();
-        // $user->picturePath = $file;
-        // $user->update();
-
         $data = $request->all();
-
         $data['picturePath'] = $request->file('picturePath')->store('assets/posting', 'public');
-
-        $posting = Posting::create($data);
+        // $posting = Posting::create($data);
 
         return ResponseFormatter::success([$data], 'File Successfully uploaded!');
 
-        // return response()->json([
-        //     'success' => true,
-        //     'message' => 'Successfully!',
-        //     'data'    => $posting
-        // ]);
+
     }
 
 
