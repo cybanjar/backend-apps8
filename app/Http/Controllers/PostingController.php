@@ -27,7 +27,10 @@ class PostingController extends Controller
             'deskripsi' => 'required|string',
             'kondisi'   => 'in:baru, bekas',
             'lokasi'    => 'required|string',
-            'picturePath' => 'required|image|max:2048',
+            'picturePath' => 'required',
+            'favorite' => 'bool',
+            'namaProfile' => 'string',
+            'photoProfile' => 'string',
         ]);
 
         if ($validator->fails()) {
@@ -35,10 +38,15 @@ class PostingController extends Controller
         }
 
         $data = $request->all();
-        $data['picturePath'] = $request->file('picturePath')->store('assets/posting', 'public');
-        // $posting = Posting::create($data);
+        // $data['picturePath'] = $request->file('picturePath')->store('assets/posting', 'public');
+        $posting = Posting::create($data);
 
-        return ResponseFormatter::success([$data], 'File Successfully uploaded!');
+        // return ResponseFormatter::success([$data], 'File Successfully uploaded!');
+        return response()->json([
+            'success'   => true,
+            'message'   => 'Successfully',
+            'data'      => $posting
+        ]);
 
 
     }

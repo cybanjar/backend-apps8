@@ -20,8 +20,11 @@ class Posting extends Migration
             $table->longText('deskripsi');
             $table->enum('kondisi', ['baru', 'bekas']);
             $table->string('lokasi');
-            $table->enum('kategori', ['kendaraan', 'elektronik', 'kuliner', 'fashion']);
-            $table->text('picturePath')->nullable();
+            $table->enum('kategori', ['transportasi', 'elektronik', 'kuliner', 'fashion', 'sembako']);
+            $table->longText('picturePath')->nullable();
+            $table->boolean('favorite')->default(false);
+            $table->string('namaProfile');
+            $table->string('photoProfile');
             $table->timestamps();
         });
     }
