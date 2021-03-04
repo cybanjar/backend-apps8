@@ -14,7 +14,7 @@ class PostingController extends Controller
 
     public function index()
     {
-        $posting = Posting::all();
+        $posting = Posting::paginate(10);
         return response()->json($posting);
     }
 
