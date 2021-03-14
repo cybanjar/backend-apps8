@@ -56,7 +56,6 @@ class UserController extends Controller
 
     public function register(Request $request)
     {
-        // try {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -68,9 +67,15 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'address' => $request->address,
-            'houseNumber' => $request->houseNumber,
+            'detailLocation' => $request->detailLocation,
             'phoneNumber' => $request->phoneNumber,
-            'city' => $request->city,
+            'desa' => $request->desa,
+            'kecamatan' => $request->kecamatan,
+            'kabupaten' => $request->kabupaten,
+            'provinsi' => $request->provinsi,
+            'postingan' => $request->postingan,
+            'pengikut' => $request->pengikut,
+            'mengikuti' => $request->mengikuti,
             'password' => Hash::make($request->password),
         ]);
 

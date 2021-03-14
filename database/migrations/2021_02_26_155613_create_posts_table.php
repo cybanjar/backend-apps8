@@ -20,8 +20,13 @@ class CreatePostsTable extends Migration
             $table->longText('deskripsi');
             $table->enum('kondisi', ['baru', 'bekas']);
             $table->string('lokasi');
+            $table->string('desa')->nullable();
+            $table->string('kecamatan')->nullable();
+            $table->string('kabupaten')->nullable();
             $table->enum('kategori', ['transportasi', 'elektronik', 'kuliner', 'fashion', 'sembako']);
-            $table->longText('picturePath')->nullable();
+            $table->longText('picturePath1')->nullable();
+            $table->longText('picturePath2')->nullable();
+            $table->longText('picturePath3')->nullable();
             $table->boolean('favorite')->default(false);
             $table->string('namaProfile');
             $table->string('photoProfile');

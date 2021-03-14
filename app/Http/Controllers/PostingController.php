@@ -27,7 +27,7 @@ class PostingController extends Controller
             'deskripsi' => 'required|string',
             'kondisi'   => 'in:baru, bekas',
             'lokasi'    => 'required|string',
-            'picturePath' => 'required',
+            'picturePath1' => 'required',
             'favorite' => 'bool',
             'namaProfile' => 'string',
             'photoProfile' => 'string',

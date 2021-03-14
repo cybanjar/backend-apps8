@@ -12,6 +12,20 @@ class Posting extends Model
     protected $table = 'posts';
 
     protected $fillable = [
-        'nama', 'harga', 'deskripsi', 'kondisi', 'lokasi', 'kategori', 'picturePath', 'favorite', 'namaProfile', 'photoProfile'
+        'nama',
+        'harga',
+        'deskripsi',
+        'kondisi',
+        'lokasi',
+        'kategori',
+        'picturePath1',
+        'picturePath2',
+        'picturePath3',
+        'favorite',
+        'namaProfile',
+        'photoProfile',
+        'desa',
+        'kecamatan',
+        'kabupaten',
     ];
 }

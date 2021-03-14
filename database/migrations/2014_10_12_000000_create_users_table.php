@@ -25,9 +25,16 @@ class CreateUsersTable extends Migration
             $table->text('picturePath')->nullable();
 
             $table->text('address')->nullable();
-            $table->string('houseNumber')->nullable();
+            $table->string('detailLocation')->nullable();
             $table->string('phoneNumber')->nullable();
-            $table->string('city')->nullable();
+            $table->string('desa')->nullable();
+            $table->string('kecamatan')->nullable();
+            $table->string('kabupaten')->nullable();
+            $table->string('provinsi')->nullable();
+
+            $table->string('postingan')->nullable();
+            $table->string('pengikut')->nullable();
+            $table->string('mengikuti')->nullable();
 
             $table->string('roles')->default('USER');
 

@@ -32,9 +32,15 @@ class User extends Authenticatable
         'password',
         'picturePath',
         'address',
-        'houseNumber',
+        'detailLocation',
         'phoneNumber',
-        'city',
+        'desa',
+        'kecamatan',
+        'kabupaten',
+        'provinsi',
+        'postingan',
+        'pengikut',
+        'mengikuti',
         'roles',
     ];
 
