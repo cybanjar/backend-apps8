@@ -31,6 +31,7 @@ class PostingController extends Controller
             'favorite' => 'bool',
             'namaProfile' => 'string',
             'photoProfile' => 'string',
+            'phoneNumber' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -47,8 +48,6 @@ class PostingController extends Controller
             'message'   => 'Successfully',
             'data'      => $posting
         ]);
-
-
     }
 
 
@@ -56,6 +55,36 @@ class PostingController extends Controller
     {
         $posting = Posting::find($id);
         return response()->json($posting);
+    }
+
+    public function searchLocation($keyword)
+    {
+        $data = Posting::where('desa', 'like', '%' . $keyword . '%')->get();
+        if (is_null($data)) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Resource not found!'
+            ], 404);
+        }
+        return response()->json($data, 200);
+    }
+
+    // public function searchLokasi(Request $request) 
+    // {
+    //     $data = $request->all();
+    //     if($keyword) {
+    //         $posting = Posting::find($keyword);
+
+    //     }
+    // }
+
+    public function searchCategory($keyword)
+    {
+        $data = Posting::where('kategori', 'like', '%' . $keyword . '%')->get();
+        if (is_null($data)) {
+            return response()->json(['message' => 'Resource not found!'], 404);
+        }
+        return response()->json($data, 200);
     }
 
     public function update(Request $request, $id)

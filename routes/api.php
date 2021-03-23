@@ -28,10 +28,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('user/photo', [UserController::class, 'updatePhoto']);
     Route::post('logout', [UserController::class, 'logout']);
 
-    Route::post('checkout', [TransactionController::class, 'checkout']);
+    // Route::post('checkout', [TransactionController::class, 'checkout']);
 
-    Route::get('transaction', [TransactionController::class, 'all']);
-    Route::post('transaction/{id}', [TransactionController::class, 'update']);
+    // Route::get('transaction', [TransactionController::class, 'all']);
+    // Route::post('transaction/{id}', [TransactionController::class, 'update']);
     
     Route::post('posting', [PostingController::class, 'store']);
     Route::get('posting', [PostingController::class, 'index']);
@@ -40,10 +40,12 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('posting/{id}', [PostingController::class, 'destroy']);
     // Route::post('posting', [PostingController::class, 'updateProfile']);
     // Route::post('posting', [PostingController::class, 'updatePhoto']);
+    Route::get('/posting/searchLocation/{keyword}', [PostingController::class, 'searchLocation']);
+    Route::get('/posting/searchCategory/{keyword}', [PostingController::class, 'searchCategory']);
 });
 
 Route::post('login', [UserController::class, 'login']);
 Route::post('register', [UserController::class, 'register']);
 
-Route::get('food', [FoodController::class, 'all']);
-Route::post('midtrans/callback', [MidtransController::class, 'callback']);
+// Route::get('food', [FoodController::class, 'all']);
+// Route::post('midtrans/callback', [MidtransController::class, 'callback']);

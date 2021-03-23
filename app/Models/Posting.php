@@ -27,7 +27,9 @@ class Posting extends Model
         'desa',
         'kecamatan',
         'kabupaten',
-        'user_id'
+        
+        'user_id',
+        'phoneNumber'
     ];
 
     // public function user(){

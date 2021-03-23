@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('nama');
             $table->integer('harga');
             $table->longText('deskripsi');
-            $table->enum('kondisi', ['baru', 'bekas']);
+            $table->enum('kondisi', ['baru', 'bekas'])->nullable();
             
             $table->string('lokasi');
             $table->string('desa')->nullable();
@@ -35,6 +35,7 @@ class CreatePostsTable extends Migration
             $table->string('photoProfile');
             
             $table->string('user_id');
+            $table->string('phoneNumber');
             $table->timestamps();
         });
     }
