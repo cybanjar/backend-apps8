@@ -59,7 +59,7 @@ class PostingController extends Controller
 
     public function searchLocation($keyword)
     {
-        $data = Posting::where('desa', 'like', '%' . $keyword . '%')->paginate(10);
+        $data = Posting::where('desa', 'like', '%' . $keyword . '%')->paginate(10)->get();
         if (is_null($data)) {
             return response()->json([
                 'success' => false,
