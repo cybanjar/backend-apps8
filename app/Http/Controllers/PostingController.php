@@ -59,8 +59,8 @@ class PostingController extends Controller
 
     public function searchLocation($keyword)
     {
-        $data = Posting::where('desa', 'like', '%' . $keyword . '%')->get();
-        $data = Posting::paginate(10);
+        $data = Posting::where('kecamatan', 'like', '%' . $keyword . '%')->paginate(10);
+        // $data = Posting::paginate(10);
         if (is_null($data)) {
             return response()->json([
                 'success' => false,
@@ -81,8 +81,8 @@ class PostingController extends Controller
 
     public function searchCategory($keyword)
     {
-        $data = Posting::where('kategori', 'like', '%' . $keyword . '%')->get();
-        $data = Posting::paginate(10);
+        $data = Posting::where('kategori', 'like', '%' . $keyword . '%')->paginate(10);
+        // $data = Posting::paginate(10);
         if (is_null($data)) {
             return response()->json(['message' => 'Resource not found!'], 404);
         }
