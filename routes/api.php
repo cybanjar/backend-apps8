@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\FoodController;
+use App\Http\Controllers\EmployeController;
 use App\Http\Controllers\PostingController;
 
 /*
@@ -46,6 +47,8 @@ Route::middleware('auth:sanctum')->group(function () {
 
 Route::post('login', [UserController::class, 'login']);
 Route::post('register', [UserController::class, 'register']);
+
+Route::get('emp', [EmployeController::class, 'index']);
 
 // Route::get('food', [FoodController::class, 'all']);
 // Route::post('midtrans/callback', [MidtransController::class, 'callback']);
